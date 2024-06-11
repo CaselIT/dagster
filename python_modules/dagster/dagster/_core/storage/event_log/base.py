@@ -309,6 +309,9 @@ class EventLogStorage(ABC, MayHaveInstanceWeakref[T_DagsterInstance]):
     def can_cache_asset_status_data(self) -> bool:
         pass
 
+    def can_write_asset_cached_status_data(self) -> bool:
+        return True
+
     @abstractmethod
     def wipe_asset_cached_status(self, asset_key: AssetKey) -> None:
         pass
