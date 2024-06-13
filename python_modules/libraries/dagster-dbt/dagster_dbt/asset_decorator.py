@@ -23,7 +23,7 @@ from dagster._core.definitions.metadata.source_code import (
     LocalFileCodeReference,
 )
 from dagster._core.definitions.tags import StorageKindTagSet
-from dagster._utils.warnings import experimental_warning
+from dagster._utils.warnings import experimental_warning, suppress_dagster_warnings
 
 from dagster_dbt.dbt_project import DbtProject
 
@@ -54,6 +54,7 @@ DUPLICATE_ASSET_KEY_ERROR_MESSAGE = (
 )
 
 
+@suppress_dagster_warnings
 def dbt_assets(
     *,
     manifest: DbtManifestParam,
